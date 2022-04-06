@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js localhost 3000"
+    "start": "nodemon ./index.js localhost 3001"
   },
   "keywords": [],
-  "author": "Matheus <matheus@horadecodar.com.br> (http://www.horadecodar.com.br/)",
+  "author": "Wellington Henrique",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.0",

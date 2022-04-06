@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
     try {
       await Person.create(person)
   
-      res.status(201).json({ message: 'Pessoa inserida no sistema com sucesso!' })
+      res.status(201).set("Access-Control-Allow-Origin", "*").json({ message: 'Pessoa inserida no sistema com sucesso!' })
     } catch (error) {
       res.status(500).json({ erro: error })
     }
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     try {
       const people = await Person.find()
   
-      res.status(200).json(people)
+      res.status(200).set("Access-Control-Allow-Origin", "*").json(people)
     } catch (error) {
       res.status(500).json({ erro: error })
     }
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
       const person = await Person.findOne({ _id: id })
   
       if (!person) {
-        res.status(422).json({ message: 'Usuário não encontrado!' })
+        res.status(422).set("Access-Control-Allow-Origin", "*").json({ message: 'Usuário não encontrado!' })
         return
       }
   
@@ -70,7 +70,7 @@ router.post('/', async (req, res) => {
       const updatedPerson = await Person.updateOne({ _id: id }, person)
   
       if (updatedPerson.matchedCount === 0) {
-        res.status(422).json({ message: 'Usuário não encontrado!' })
+        res.status(422).set("Access-Control-Allow-Origin", "*").json({ message: 'Usuário não encontrado!' })
         return
       }
   
@@ -93,7 +93,7 @@ router.post('/', async (req, res) => {
     try {
       await Person.deleteOne({ _id: id })
   
-      res.status(200).json({ message: 'Usuário removido com sucesso!' })
+      res.status(200).set("Access-Control-Allow-Origin", "*").json({ message: 'Usuário removido com sucesso!' })
     } catch (error) {
       res.status(500).json({ erro: error })
     }
